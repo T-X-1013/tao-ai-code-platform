@@ -10,7 +10,7 @@ import com.tao.taoaicodeplatform.constant.UserConstant;
 import com.tao.taoaicodeplatform.exception.BusinessException;
 import com.tao.taoaicodeplatform.exception.ErrorCode;
 import com.tao.taoaicodeplatform.exception.ThrowUtils;
-import com.tao.taoaicodeplatform.model.dto.*;
+import com.tao.taoaicodeplatform.model.dto.user.*;
 import com.tao.taoaicodeplatform.model.vo.LoginUserVO;
 import com.tao.taoaicodeplatform.model.vo.UserVO;
 import jakarta.annotation.Resource;

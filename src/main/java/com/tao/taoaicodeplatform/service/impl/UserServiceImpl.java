@@ -7,7 +7,7 @@ import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.spring.service.impl.ServiceImpl;
 import com.tao.taoaicodeplatform.exception.BusinessException;
 import com.tao.taoaicodeplatform.exception.ErrorCode;
-import com.tao.taoaicodeplatform.model.dto.UserQueryRequest;
+import com.tao.taoaicodeplatform.model.dto.user.UserQueryRequest;
 import com.tao.taoaicodeplatform.model.entity.User;
 import com.tao.taoaicodeplatform.mapper.UserMapper;
 import com.tao.taoaicodeplatform.model.enums.UserRoleEnum;

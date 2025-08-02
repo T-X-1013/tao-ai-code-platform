@@ -2,7 +2,7 @@ package com.tao.taoaicodeplatform.service;
 
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
-import com.tao.taoaicodeplatform.model.dto.UserQueryRequest;
+import com.tao.taoaicodeplatform.model.dto.user.UserQueryRequest;
 import com.tao.taoaicodeplatform.model.entity.User;
 import com.tao.taoaicodeplatform.model.vo.LoginUserVO;
 import com.tao.taoaicodeplatform.model.vo.UserVO;
