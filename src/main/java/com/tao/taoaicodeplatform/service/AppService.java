@@ -4,7 +4,9 @@ import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
 import com.tao.taoaicodeplatform.model.dto.app.AppQueryRequest;
 import com.tao.taoaicodeplatform.model.entity.App;
+import com.tao.taoaicodeplatform.model.entity.User;
 import com.tao.taoaicodeplatform.model.vo.AppVO;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -14,6 +16,24 @@ import java.util.List;
  * @author <a href="https://github.com/T-X-1013">奥德奈瑞</a>
  */
 public interface AppService extends IService<App> {
+
+    /**
+     * 通过对话生成应用代码
+     * @param appId      应用ID
+     * @param message    提示词
+     * @param loginUser  登录用户
+     * @return
+     */
+    Flux<String> chatToGenCode(Long appId, String message, User loginUser);
+
+    /**
+     * 应用部署
+     *
+     * @param appId       应用ID
+     * @param loginUser   登录用户
+     * @return            可访问的部署地址
+     */
+    String deployApp(Long appId, User loginUser);
 
     /**
      * 获取应用封装类
@@ -35,4 +55,6 @@ public interface AppService extends IService<App> {
      * @return
      */
     QueryWrapper getQueryWrapper(AppQueryRequest appQueryRequest);
+
+
 }
