@@ -26,3 +26,5 @@ class AiCodeGenTypeRoutingServiceTest {
         log.info("用户需求: {} -> {}", userPrompt, result.getValue());
     }
 }
+
+
