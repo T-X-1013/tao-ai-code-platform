@@ -3,7 +3,7 @@ package com.tao.taoaicodeplatform.ai;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import com.tao.taoaicodeplatform.ai.tools.FileWriteTool;
+import com.tao.taoaicodeplatform.ai.tools.*;
 import com.tao.taoaicodeplatform.exception.BusinessException;
 import com.tao.taoaicodeplatform.exception.ErrorCode;
 import com.tao.taoaicodeplatform.model.enums.CodeGenTypeEnum;
@@ -42,6 +42,9 @@ public class AiCodeGeneratorServiceFactory {
 
     @Resource
     private ChatHistoryService chatHistoryService;
+
+    @Resource
+    private ToolManager toolManager;
 
     /**
      * AI 服务实例缓存
@@ -103,7 +106,8 @@ public class AiCodeGeneratorServiceFactory {
             case VUE_PROJECT -> AiServices.builder(AiCodeGeneratorService.class)
                     .streamingChatModel(reasoningStreamingChatModel)
                     .chatMemoryProvider(memoryId -> chatMemory)
-                    .tools(new FileWriteTool())
+                    .tools(toolManager.getAllTools())
+                    // 处理工具调用幻觉问题
                     .hallucinatedToolNameStrategy(toolExecutionRequest -> ToolExecutionResultMessage.from(
                             toolExecutionRequest, "Error: there is no tool called " + toolExecutionRequest.name()
                     ))
